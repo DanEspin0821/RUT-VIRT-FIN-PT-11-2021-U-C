@@ -33,24 +33,18 @@ from typing import Any
 # 5. Assign a default value to the `timestamp` attribute by using the following
 # code: `datetime.utcnow().strftime("%H:%M:%S")`
 
-# @TODO
 # Define a class `Block` and add the `@dataclass` decorator.
-# YOUR CODE HERE!
-# YOUR CODE HERE!
-
-    # @TODO:
+@dataclass
+class Block:
     # Define an attribute named `data` with a type of `Any`.
-    # YOUR CODE HERE!
-
-    # @TODO:
+    data: Any
     # Define an attribute named `creator_id` with a type of `int`.
-    # YOUR CODE HERE!
-
-    # @TODO:
+    creator_id: int
     # Define an attribute name `timestamp` with a type of `str`.
     # Use the following code to set the value:
     # `datetime.utcnow().strftime("%H:%M:%S")`
-    # # YOUR CODE HERE!
+    timestamp: str = datetime.utcnow().strftime("%H:%M:%S")
+
 
 # Create the application headers using markdown strings.
 st.markdown("# PyBlock")
@@ -60,10 +54,9 @@ st.markdown("## Store Data in a Block")
 # Step 2:
 # Create a Streamlit Component to Accept User Input
 
-# @TODO:
 # Referencing the Streamlit library, use the `text_input` function and pass the
 # parameter "Block Data".
-input_data =  # YOUR CODE HERE!
+input_data = st.text_input("Block Data")
 
 ################################################################################
 # Step 3:
@@ -80,23 +73,18 @@ input_data =  # YOUR CODE HERE!
 # `new_block = Block(data=input_data, creator_id=42)`
 # 3. Use the `st.write` function to display the new block.
 
-# @TODO:
 # Create a Streamlit `button`, and pass the “Add Block” parameter to it.
-# YOUR CODE HERE!
-
-    # @TODO:
+if st.button("Add Block"):
     # Create an instance of the `Block` data class called `new_block`
     # Use the user input from Step 2 for the `data` attribute
     # Use the integer 42 for the `creator_id`
-    new_block =  # YOUR CODE HERE!
-
-    # @TODO:
+    new_block = Block(data=input_data, creator_id=42)
     # Use the `st.write` function to display the new block.
-    # YOUR CODE HERE!
+    st.write(new_block)
 
 ################################################################################
 # Step 4:
-# Test the application.
+# Test the Application
 
 # Complete the following steps:
 # 1. In the terminal, navigate to the `Unsolved` folder for this activity.
